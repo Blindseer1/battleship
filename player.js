@@ -6,4 +6,4 @@ const Player = () => {
 }
 
 
-module.exports = Player()
+module.exports = Player
