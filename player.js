@@ -1,9 +1,10 @@
 const GameBoard = require('./gameboard')
 
 const Player = () => {
-  const gb = GameBoard();
-  return { gb }
+  this.gb = GameBoard();
+  return { gb: this.gb }
 }
+
 
 
 module.exports = Player

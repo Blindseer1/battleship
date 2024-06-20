@@ -10,7 +10,7 @@ let prompt = document.querySelector('.prompt');
 const playButton = document.querySelector('#play');
 const randomButton = document.querySelector('#random')
 
-let gameOver = 0;
+let gameOver = 1;
 
 let player = Player();
 let computer = Player();
@@ -98,7 +98,7 @@ const computerMove = () => {
   let x = Math.floor(Math.random() * 10);
   let y = Math.floor(Math.random() * 10)
 
-  console.log('initial coord are ' + x + ' ' + y)
+
 
   while (cells[x * 10 + y].children[0] != undefined && cells[x * 10 + y].children[0].className.slice(-4) != "ship") {
     x = Math.floor(Math.random() * 10);
@@ -107,26 +107,22 @@ const computerMove = () => {
   player.gb.receiveAttack(x, y)
   updateBoard(playerBoard, player)
 
-
-  console.log(x, y)
-
+  computer.gb.shipsPrint()
 
 
 }
 
 let coordinatesGenerated = 0;
 
-const clearB = (board, user) => {
-  user.gb.clearBoard()
-  console.log(user.gb.shipsPrint())
-  updateBoard(board, user);
-}
+
 
 
 playButton.addEventListener('click', () => {
   if (coordinatesGenerated == 1) {
     gameOver = 0;
-    console.log(computer.gb.shipsPrint())
+    computer.gb.lose = 0;
+    player.gb.lose = 0;
+    prompt.textContent = "Have Fun!"
 
   }
 
@@ -157,13 +153,13 @@ const randomCoordinates = (player) => {
 }
 
 randomButton.addEventListener('click', () => {
-  clearB(computerBoard, computer)
-  clearB(playerBoard, player)
+  computer.gb.clearBoard()
+  player.gb.clearBoard()
+  console.log('hi')
   randomCoordinates(computer)
   randomCoordinates(player)
   updateBoard(computerBoard, computer)
   updateBoard(playerBoard, player)
-  computerListener()
 })
-
+computerListener()
 
