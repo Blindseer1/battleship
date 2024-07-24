@@ -7,7 +7,13 @@ html {
 body {
   height: 100%;
   margin: 0px;
+  background-color: #94958B;
+  color: black;
 
+}
+
+h1 {
+  text-align: center;
 }
 
 .prompt {
@@ -34,14 +40,14 @@ body {
   height: 90%;
   margin: 3px;
 
-  border: 2px solid white;
+  border: 2px solid #45528F;
   display: grid;
   grid-template-rows: repeat(10, minmax(0, 20%));
   grid-template-columns: repeat(10, minmax(0, 1fr))
 }
 
 .gameboard div {
-  border: 1px solid white;
+  border: 1px solid #45528F;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,11 +84,12 @@ body {
   max-height: 40%;
   text-align: center;
   box-sizing: border-box;
+  background-color: #45528F;
 }
 
 
 #play:hover,
 #random:hover {
-  color: white;
-  background-color: blue;
+
+  background-color: #82A3A1;
 }

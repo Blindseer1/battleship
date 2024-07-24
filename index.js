@@ -19,9 +19,15 @@ const updateBoard = (board, player) => {
   let cells = Array.from(board.querySelectorAll('div'))
   let i = 0, j = 0;
   let grid = player.gb.returnGrid();
+  console.log(player)
 
   cells.forEach((cell) => {
+
+
+
+
     cell.innerHTML = '';
+
     let ship = new Image();
     ship.src = shipImg;
     ship.className = "icons";
@@ -41,7 +47,7 @@ const updateBoard = (board, player) => {
       if (grid[i][j] == 1)
         cell.appendChild(boom);
       else
-        if (grid[i][j] != 0)
+        if (grid[i][j] != 0 && player != computer)
           cell.appendChild(ship)
 
 
